@@ -9,7 +9,7 @@ function Chart() {
     const [crypt, setCrypt] = useState([]);
 
     useEffect(() => {
-        axios.get(`https://api.coinstats.app/public/v1/coins?skip=0&limit=100&currency=INR`)
+        axios.get('https://api.coinstats.app/public/v1/coins?skip=0&limit=69&currency=NGN')
         .then((res) => {
             setCrypt(res.data.coins);
             console.log(setCrypt);
@@ -44,16 +44,16 @@ function Chart() {
                                 <tr id={id}>
                                     <td className="rank">{val.rank}</td>
                                     <td className="logo">
-                                        <a href={val.websiteUrl}>
+                                        <a href={val.websiteUrl}> 
                                             <img src={val.icon} alt="logo" width="30px" />
-                                        </a>
+                                        </a> 
                                         <p>{val.name}</p>
                                     </td>
                                     <td className="symbol">{val.symbol}</td>
                                     <td>{val.marketCap}</td>
-                                    <td>{val.price.toFixed(2)}</td>
+                                    <td>&#8358;{val.price.toFixed(2)}</td>
                                     <td>{val.availableSupply}</td>
-                                    
+                                    <td>{val.volume.toFixed(0)}</td>
                                 </tr>
                             </>
                         );
